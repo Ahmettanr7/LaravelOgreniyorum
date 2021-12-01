@@ -1,0 +1,327 @@
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    background: #e5e5e5;
+    box-sizing: border-box;
+}
+.mt-20{
+margin-top: 20px;
+}
+a{
+    text-decoration: none;
+}
+nav ul li{
+    list-style: none;
+}
+.kapsar{
+    width: 100%;
+    float: left;
+}
+.ortala{
+    width: 1155px;
+    margin: 0 auto;
+    
+}
+.header-ust{
+    background: #ffffff;
+    height: 80px;
+}
+.dropdown-container{
+    position: relative;
+    float: left;
+    margin-top: 1px;
+}
+.dropdown-container button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    float: left;
+    margin: 22px 0 0 10px;
+    position: relative;
+    cursor: pointer;
+}
+.dropdown-container button::after{
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f0d7";
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    font-size: 15px;
+}
+.dropdown-container button span:nth-of-type(1){
+    color: #f5a905;
+}
+.dropdown-container button span:nth-of-type(2){
+    color: #3d3d3d;
+}
+.dropdown-container nav{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    width: 128px;
+    transition: 200ms all;
+    visibility: hidden;
+    opacity: 0;
+    margin-left:10px;
+}
+.dropdown-container nav ul li a{
+    display: block;
+    padding-top: 10px;
+    font-size: 15px;
+    color: #000;
+}
+.dropdown-container nav ul li a:hover{
+    color: #f5a905;
+}
+.dropdown-container button:hover + nav, .dropdown-container nav:hover{
+    visibility: visible;
+    opacity: 1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.dropdown-container button:hover, .dropdown-container nav:hover .dropdown-container button{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.topnav .search-container {
+    float: left;
+  }
+.search-container form input{
+    float: left;
+    margin: 22px 0 0 10px;
+    width: max-content;
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    background: #f4f5f9;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+.search-container button {
+    float: left;
+    padding: 6px 10px;
+    margin-top: 23px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    content: 'Ara';
+    color: #000;
+    font-size: 10px;
+  }
+.isletme{
+    float: left;
+    margin: 22px 0 0 10px;
+    width: max-content;
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    background: #f4f5f9;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+.isletme p{
+    padding: 13px 20px 13px 20px;
+}
+.isletme:nth-of-type(1){
+    color:#2f5e88;
+}
+.isletme:nth-of-type(2){
+    color: #000;
+}
+.mini-circle{
+    float: right;
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    border: none;
+    background: #f8d267;
+    margin: 16px 0 0 10px;
+}
+.mini-circle img{
+    width: 100%;
+    height: 100%;
+    border-radius: 45px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.kullanici{
+    float: right;
+    margin-top: 25px;
+    cursor: default;
+}
+.kullanici span:nth-child(1){
+    display: block;
+    font-size: 15px;
+    color: #2f5e88;
+}
+.kullanici span:nth-child(2){
+    display: block;
+    font-size: 12px;
+    text-align: end;
+}
+.header-alt{
+    height: 65px;
+    background: #2f5e88;
+}
+.menu{
+    list-style: none;
+    float: left;
+}
+.menu li{
+    float: left;
+    padding: 0 20px 0 20px;
+    margin-top: -10px;
+    height: 55px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+}
+.menu a{
+    text-decoration: none;
+    color: #fff;
+}
+.menu li:hover{
+    background: #23527e;
+}
+.menu:nth-child(1){
+    padding-left: 0;
+}
+.menu:nth-child(8){
+    padding-right: 0;
+}
+.kutu-4{
+    width: calc(1125px/4);
+    background: #ffffff;
+    float: left;
+    margin-right: 10px;
+    border-radius: 15px;
+    cursor: default;
+    overflow: hidden;
+}
+.h-360{
+height: 360px;
+}
+.kutu-4:last-child{
+    margin-right: 0;
+}
+.kutu-4 .kutu-title{
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    background: #f8f8f8;
+    float: left;
+}
+.kutu-4 .kutu-title p{
+    color: #2f5e88;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.kutu-4 .kutu-icerik{
+float: left;
+height: 270px;
+width: 100%;
+}
+.kutu-4 .kutu-footer{
+    float: left;
+    height: 40px;
+    width: 100%;
+    border-top: 1px solid #e5e5e5;
+    color: #000;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.kutu-4 .kutu-footer:hover, .kutu-4:hover .kutu-footer{
+    background: #f8f8f8;
+}
+.kutu-4 .kutu-footer i{
+    color: #f5a905;
+}
+.kutu-4 .kasa-kutu-icerik{
+    float: left;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+}
+.kutu-4 .kasa-kutu-icerik h6{
+    color: #2f5e88;
+}
+.kasa-hr{
+    width: calc(1000px/4);
+    float: left;
+    background-color: #2f5e88;
+    margin-top: -15px;
+}
+.kasa-kutu-icerik table tr td{
+    border-bottom:1px solid #e5e5e5;
+    width: 100%;
+    padding-right: 20px;
+    font-size: 14px;
+}
+
+.kasa-kutu-icerik table tr td:last-child{
+    float: right;
+    width: 100%;
+    text-align: right;
+}
+.kutu-12{
+    width: 100%;
+    background: #ffffff;
+    float: left;
+    border-radius: 15px;
+    cursor: default;
+    overflow: hidden;
+}
+.kutu-12 .kutu-title{
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    background: #f8f8f8;
+    float: left;
+    align-items: center;
+    display: flex;
+}
+.kutu-12 span{
+    float: right;
+}
+.kutu-12 .mini-circle{
+    float: right;
+}
+.kutu-12 .kutu-title:nth-child(1){
+    color: #2f5e88;
+    margin-left: 15px;
+    float: left;
+    align-items: center;
+    display: flex;
+}
+.kutu-12 .mini-circle{
+    float: right;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    border: none;
+    background: #e24c71;
+    
+}
