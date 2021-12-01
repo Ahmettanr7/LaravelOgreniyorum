@@ -24,7 +24,7 @@
               </div>
         <div class="mini-circle"><img  alt=""></div>
         <div class="mini-circle"><img  alt=""></div>
-        <div class="kullanici"><span><b>Nazım Yılmaz</b></span><span>Genel Müdür</span></div>
+        <div class="kullanici"><span><b>Ahmet Tanrıkulu</b></span><span>Full Stack Developer</span></div>
         </div>
     </div>
     <div class="header-alt">

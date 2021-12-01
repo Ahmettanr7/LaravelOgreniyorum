@@ -214,14 +214,16 @@ nav ul li{
     background: #ffffff;
     float: left;
     margin-right: 10px;
+    margin-top: 10px;
     border-radius: 15px;
     cursor: default;
     overflow: hidden;
+
 }
 .h-360{
 height: 360px;
 }
-.kutu-4:last-child{
+.kutu-4:nth-of-type(4n+4){
     margin-right: 0;
 }
 .kutu-4 .kutu-title{

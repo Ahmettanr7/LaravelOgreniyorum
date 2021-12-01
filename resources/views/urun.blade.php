@@ -5,8 +5,11 @@
 
 @section('content')
 
-<div class="kapsar">
+<div class="kapsar mt-20">
   <div class="ortala">
+
+    <img src="{{asset('img/monster.png')}}" style="width:45%; float:left;" alt="">
+
     <table>
   <tr>
     <th>Ürün Adı</th>

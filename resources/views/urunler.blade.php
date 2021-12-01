@@ -15,7 +15,9 @@
       <div class="kutu-title">
           <p><b>{{$urun['name']}}</b></p>
       </div>
-      <div class="kutu-icerik">{{$urun['description']}}</div>
+      <div class="kutu-icerik">
+      <img src="{{asset('img/monster.png')}}" style="width:calc(1100px/4)" alt="">  
+      <p style="text-align:center;">{{$urun['description']}}</p></div>
       <a href="">
       <div class="kutu-footer">
           <i class="mdi mdi-plus"></i> Ürün Detayı
