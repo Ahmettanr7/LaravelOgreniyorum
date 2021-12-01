@@ -11,6 +11,6 @@
 
 Tasarımlardan ziyade Laravel Frameworkü öğrenmeye odaklandım. Bundan sonraki projem Php Laravel ile güzel bir sistem oluşturacağım..
 
- ![alt text](https://ahmettanrikulu.cf/assets/files/lrvl1.PNG)
- ![alt text](https://ahmettanrikulu.cf/assets/files/lrvl2.PNG)
- ![alt text](https://ahmettanrikulu.cf/assets/files/lrvl3.PNG)
+ ![alt text](https://res.cloudinary.com/ahmettanrikulu/image/upload/v1638388942/lrvl1_dhv8gs.png)
+ ![alt text](https://res.cloudinary.com/ahmettanrikulu/image/upload/v1638388943/lrvl2_bt4all.png)
+ ![alt text](https://res.cloudinary.com/ahmettanrikulu/image/upload/v1638389130/lrvl4_zpa2kh.png)
