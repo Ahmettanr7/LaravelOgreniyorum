@@ -16,15 +16,16 @@
     <th>Açıklama</th>
     <th>Fiyat</th>
     <th></th>
+    <th></th>
   </tr>
 
    
   <tr>
 
     <td><?=$urun['name']?></td>
-
     <td>  <?=$urun['description']?></td>
     <td><?=$urun['price'] ?></td>
+    <td>{{$urun['slug']}}</td>
     <td>
     <form method="POST" action="/products/delete/<?=$urun['id']?>}}">
         {{ csrf_field() }}
