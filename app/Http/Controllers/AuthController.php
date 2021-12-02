@@ -6,9 +6,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Closure;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
+    public function registerView(){
+        return view('register');
+    }
     public function register(Request $request) {
         $fields = $request->validate([
             'name' => 'required|string',
@@ -32,6 +37,10 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
+    public function loginView(){
+        return view('login');
+    }
+
     public function login(Request $request) {
         $fields = $request->validate([
             'email' => 'required|string',
@@ -43,17 +52,21 @@ class AuthController extends Controller
 
         // Check password
         if(!$user || !Hash::check($fields['password'], $user->password)) {
-            return response([
-                'message' => 'Bad creds'
-            ], 401);
+            $response = [
+                'message' => 'Hatalı şifre girdiniz !' 
+            ];
+            return response($response, 401);
         }
 
         $token = $user->createToken('myapptoken')->plainTextToken;
 
         $response = [
+            'message' => 'Giriş Başarılı',
             'user' => $user,
             'token' => $token
         ];
+
+        Cookie::queue('accessToken', $token);
 
         return response($response, 201);
     }
@@ -61,8 +74,9 @@ class AuthController extends Controller
     public function logout(Request $request) {
         auth()->user()->tokens()->delete();
 
-        return [
-            'message' => 'Logged out'
-        ];
+
+        Cookie::queue(\Cookie::forget('accessToken'));
+
+        return redirect()->route('urunler');
     }
 }

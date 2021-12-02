@@ -157,8 +157,13 @@ nav ul li{
     height: 45px;
     border-radius: 45px;
     border: none;
-    background: #f8d267;
+    background: #e5e5e5;
+    color: #2f5e88;
     margin: 16px 0 0 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 .mini-circle img{
     width: 100%;
@@ -167,6 +172,9 @@ nav ul li{
     -o-object-fit: cover;
        object-fit: cover;
     cursor: pointer;
+}
+.mini-circle:hover{
+    background: linear-gradient(to top, #2f5e88, #e5e5e5 20%);
 }
 .kullanici{
     float: right;

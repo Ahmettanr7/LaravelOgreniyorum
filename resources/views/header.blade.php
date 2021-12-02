@@ -1,3 +1,8 @@
+
+<script>
+    "use strict"
+    let email = window.localStorage.getItem("email");
+</script>
 <div class="kapsar header">
     <div class="header-ust">
         <div class="ortala">
@@ -22,9 +27,20 @@
                   <button type="submit">Ara</button>
                 </form>
               </div>
-        <div class="mini-circle"><img  alt=""></div>
+        <?php if (Cookie::get('accessToken') != null) { ?>
+        <a href="/logout">
+        <div class="mini-circle"><i class="fa fa-sign-in-alt"></i></div>
+        </a>
         <div class="mini-circle"><img  alt=""></div>
         <div class="kullanici"><span><b>Ahmet Tanrıkulu</b></span><span>Full Stack Developer</span></div>
+        <?php } else{?>
+            <a href="{{route('registerView')}}">
+            <div class="mini-circle">Kayıt</div>
+            </a>
+            <a href="{{route('loginView')}}">
+            <div class="mini-circle"><i class="fa fa-sign-in-alt"></i></div>
+            </a>
+        <?php } ?>
         </div>
     </div>
     <div class="header-alt">
