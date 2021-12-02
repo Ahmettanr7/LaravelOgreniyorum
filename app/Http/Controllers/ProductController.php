@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class ProductController extends Controller
 {
@@ -23,6 +24,16 @@ class ProductController extends Controller
         return view('urun',['urun' => $result]);
     }
 
+    public function getByIdUpdate($id)
+    {
+        $result = Product::find($id);
+        return view('urunDuzenle',['urun' => $result]);
+    }
+
+    public function yeniUrunView(){
+        return view('urunEkleme');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -31,14 +42,7 @@ class ProductController extends Controller
             'price' => 'required'
         ]);
         $add = Product::create($request->all());
-
-        if ($add) {
-            $response_ = array(
-                "message" => "Ekleme İşlemi Başarılı"
-            );
-            return $response_;
-        }
-        return Product::create($request->all());
+        return redirect()->route('getById', ['id' => $add->id]);
     
     }
 
@@ -91,13 +95,30 @@ class ProductController extends Controller
 
     public function searchView($name){
        $search = ProductController::search($name);
-        return view('search',['search' => $search]);
+        return view('search',['search' => $search,'name' => $name]);
     }
 
     public function destroy2($id)
     {
         $destroy = Product::destroy($id);
         
-       return redirect()->back();
+       return redirect()->route('urunler');
+    }
+
+    public function updateView(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required'
+        ]);
+        $productId = $request->input('id');
+        $product = Product::find($productId);
+        $product->update($request->all());
+
+        if ($product) {
+
+            return redirect()->route('getById', ['id' => $productId]);
+        }
+        return redirect()->back();
     }
 }

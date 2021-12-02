@@ -9,16 +9,16 @@
         <nav>
             <ul>
                 <li><a href="/urunler">Ürünler</a></li>
-                <li><a href="#">Menu2</a></li>
+                <li><a href="{{route('yeniUrunView')}}">Ürün Ekle</a></li>
                 <li><a href="#">Menu3</a></li>
             </ul>
         </nav>
         </div>
         <div class="isletme"><p><b>Fivi Yazılım & Reklam Ajansı</b></p></div>
             <div class="search-container">
-                <form method="GET">
+                <form id="aramaForm" method="POST">
                     @csrf
-                  <input type="text" placeholder="Ürünlerde Ara..." name="arama">
+                  <input type="text" placeholder="Ürünlerde Ara..." name="arama" id="arama">
                   <button type="submit">Ara</button>
                 </form>
               </div>
@@ -30,11 +30,11 @@
     <div class="header-alt">
 <div class="ortala">
     <ul class="menu">
-        <a href="">
+        <a href="/">
         <li>Başlangıç</li>
         </a>
-        <a href="">
-        <li>Fiyat Teklifleri</li>
+        <a href="{{route('yeniUrunView')}}">
+        <li>Ürün Ekle</li>
         </a>
         <a href="">
         <li>Satışlar</li>
@@ -59,18 +59,14 @@
     </div>
 </div>
 
-{{-- <script type="text/javascript">
-    $("form").on("submit", function (e) {
-        var data = $(this).serialize();
-        $.ajax({
-            type: "POST",
-            data: data,
-            URL: "{{ route('search', ['name' => '']) }}",
-            
-            success: function () {
-                alert("çalıştı");
-            }
-        });
-        e.preventDefault();
-    });
-</script> --}}
+<script>
+    $("#aramaForm").submit(function(e){
+  
+  e.preventDefault();
+  
+  const form = $(this);
+  let arama = $("#arama").val();
+  window.location.href = '/arama/'+arama; 
+  
+  });
+  </script>

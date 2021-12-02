@@ -34,7 +34,7 @@
             <input type="submit" class="delete-product" value="Sil">
         </div>
     </form>
-   <button onclick="window.location.href ='/urun/duzenle'">Düzenle</button>
+   <button onclick="window.location.href ='/urun/duzenle/{{$urun['id']}}'">Düzenle</button>
     </td>
   </tr>
 </table>

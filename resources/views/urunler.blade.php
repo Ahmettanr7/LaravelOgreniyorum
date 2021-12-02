@@ -10,7 +10,7 @@
   <div class="ortala">
     <?php
     foreach ($products as $key => $urun) { ?>
-    <a href="/product/{{$urun['id']}}">
+    <a href="/urun/{{$urun['id']}}">
       <div class="kutu-4 h-360">
       <div class="kutu-title">
           <p><b>{{$urun['name']}}</b></p>

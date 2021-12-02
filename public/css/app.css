@@ -90,12 +90,44 @@ nav ul li{
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-.topnav .search-container {
-    float: left;
-  }
 .search-container form input{
     float: left;
     margin: 22px 0 0 10px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: 35px;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    background: #f4f5f9;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: text;
+}
+.search-container form button{
+    float: left;
+    margin-top: 24px;
+    margin-left: -37px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    background: #f4f5f9;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+.isletme{
+    float: left;
+    margin: 22px 0 0 10px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     height: 35px;
     border-radius: 15px;
@@ -107,35 +139,8 @@ nav ul li{
     align-items: center;
     cursor: default;
 }
-.search-container button {
-    float: left;
-    padding: 6px 10px;
-    margin-top: 23px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
-    content: 'Ara';
-    color: #000;
-    font-size: 10px;
-  }
-.isletme{
-    float: left;
-    margin: 22px 0 0 10px;
-    width: max-content;
-    height: 35px;
-    border-radius: 15px;
-    border: 1px solid #e5e5e5;
-    background: #f4f5f9;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    cursor: default;
+.isletme:hover{
+    background: linear-gradient(to top, #2f5e88, #ffffff 70%);
 }
 .isletme p{
     padding: 13px 20px 13px 20px;
@@ -159,7 +164,8 @@ nav ul li{
     width: 100%;
     height: 100%;
     border-radius: 45px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     cursor: pointer;
 }
 .kullanici{
@@ -214,11 +220,10 @@ nav ul li{
     background: #ffffff;
     float: left;
     margin-right: 10px;
-    margin-top: 10px;
     border-radius: 15px;
     cursor: default;
     overflow: hidden;
-
+    margin-top: 10px;
 }
 .h-360{
 height: 360px;
@@ -256,7 +261,9 @@ width: 100%;
     display: flex;
     align-items: center;
 }
-.kutu-4 .kutu-footer:hover, .kutu-4:hover .kutu-footer{
+.kutu-4:hover .kutu-footer:last-of-type{
+    /* background: -webkit-gradient(linear, left bottom, left top, from(#e6f8fa), color-stop(50%, #ffffff));
+    background: linear-gradient(to top, #2f5e88, #ffffff 70%); */
     background: #f8f8f8;
 }
 .kutu-4 .kutu-footer i{
@@ -327,3 +334,4 @@ width: 100%;
     background: #e24c71;
     
 }
+
