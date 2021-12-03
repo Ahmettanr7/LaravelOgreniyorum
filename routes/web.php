@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Http\Request;
 
 Route::get('/',[ProductController::class,'urunlerView'])->name('home');
@@ -28,6 +29,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/yeni-urun',[ProductController::class,'yeniUrunView'])->name('yeniUrunView');
     Route::post('/yeni-urun',[ProductController::class,'store'])->name('store2');
     Route::post('/yeni-urun-ekle',[ProductController::class,'store'])->name('store');
+
+    Route::get('/hesabim',[AccountController::class,'AccountView'])->name('AccountView');
+
+    Route::get('/hesap-ayarlari',[AccountController::class,'EditAccountView'])->name('EditAccountView');
+    Route::put('/hesap-duzenle',[AccountController::class,'EditAccount'])->name('EditAccount');
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

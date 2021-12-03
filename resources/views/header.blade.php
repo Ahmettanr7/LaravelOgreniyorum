@@ -24,7 +24,7 @@
             <button><span><i class="fa fa-user-alt" style="margin-right:10px"></i><b style="margin-right:15px;">{{session()->get('name')}} </b></button>
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i> Hesabım</a></li>
+                    <li><a href="{{route('AccountView')}}"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i> Hesabım</a></li>
                     <li><a href="#"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i>Siparişlerim</a></li>
                     <li><a href="#"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i>Favorilerim</a></li>
                     <li><a href="{{route('logout')}}" style="float:right; padding:15px;">Çıkış yap</a></li>
