@@ -5,7 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 
-Route::get('/',[ProductController::class,'urunlerView'])->name('urunler');
+Route::get('/',[ProductController::class,'urunlerView'])->name('home');
 Route::get('/urunler',[ProductController::class,'urunlerView'])->name('urunler');
 Route::get('/urun/{id}',[ProductController::class,'getById'])->name('getById');
 
@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/yeni-urun',[ProductController::class,'store'])->name('store2');
     Route::post('/yeni-urun-ekle',[ProductController::class,'store'])->name('store');
 
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 

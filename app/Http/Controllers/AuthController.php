@@ -16,25 +16,36 @@ class AuthController extends Controller
     }
     public function register(Request $request) {
         $fields = $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|min:3|max:15',
             'email' => 'required|string|unique:users,email',
             'password' => 'required|string|confirmed'
         ]);
+        $user = User::where('email', $fields['email'])->first();
+        if(!$fields->passes()){
+            return response()->json(['status'=>0, 'error'=>$fields->errors()->toArray()]);
+        }else if($user){
+            return response()->json(['status'=>401, 'error'=>'Bu email zaten kayıtlı']);
+        }else{
 
-        $user = User::create([
-            'name' => $fields['name'],
-            'email' => $fields['email'],
-            'password' => bcrypt($fields['password'])
-        ]);
+            $user = User::create([
+                'name' => $fields['name'],
+                'email' => $fields['email'],
+                'password' => bcrypt($fields['password'])
+            ]);
+    
+            $token = $user->createToken('myapptoken')->plainTextToken;
+    
+    
+            $response = [
+                'user'  => $user,
+                'token' => $token
+            ];
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+            return response()->json($response, 201);
+        }
 
-        $response = [
-            'user' => $user,
-            'token' => $token
-        ];
+        
 
-        return response($response, 201);
     }
 
     public function loginView(){
@@ -60,6 +71,12 @@ class AuthController extends Controller
 
         $token = $user->createToken('myapptoken')->plainTextToken;
 
+        $request->session()->put([
+            'id'    => $user['id'],
+            'name'  => $user['name'],
+            'email' => $user['email']
+        ]);
+
         $response = [
             'message' => 'Giriş Başarılı',
             'user' => $user,
@@ -74,9 +91,10 @@ class AuthController extends Controller
     public function logout(Request $request) {
         auth()->user()->tokens()->delete();
 
+        $request->session()->flush();
 
         Cookie::queue(\Cookie::forget('accessToken'));
 
-        return redirect()->route('urunler');
+        return redirect()->route('home');
     }
 }

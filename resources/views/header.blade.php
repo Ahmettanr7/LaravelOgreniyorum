@@ -9,17 +9,8 @@
         <a href="/">
         <h2 style="float:left;">Laravel Kursum</h2>
         </a>
-        <div class="dropdown-container">
-        <button><span><b>Kolay</b></span><span><b>Menu</b></span></button>
-        <nav>
-            <ul>
-                <li><a href="/urunler">Ürünler</a></li>
-                <li><a href="{{route('yeniUrunView')}}">Ürün Ekle</a></li>
-                <li><a href="#">Menu3</a></li>
-            </ul>
-        </nav>
-        </div>
-        <div class="isletme"><p><b>Fivi Yazılım & Reklam Ajansı</b></p></div>
+      
+        <div class="isletme"><p><b>Müşteri Temsilcisi : 0850 254 54 87</b></p></div>
             <div class="search-container">
                 <form id="aramaForm" method="POST">
                     @csrf
@@ -27,18 +18,26 @@
                   <button type="submit">Ara</button>
                 </form>
               </div>
-        <?php if (Cookie::get('accessToken') != null) { ?>
-        <a href="/logout">
-        <div class="mini-circle"><i class="fa fa-sign-in-alt"></i></div>
-        </a>
-        <div class="mini-circle"><img  alt=""></div>
-        <div class="kullanici"><span><b>Ahmet Tanrıkulu</b></span><span>Full Stack Developer</span></div>
+        <?php// if (Cookie::get('accessToken') != null) { ?>
+            <?php if (session()->has('email')) { ?>
+        <div class="dropdown-container">
+            <button><span><i class="fa fa-user-alt" style="margin-right:10px"></i><b style="margin-right:15px;">{{session()->get('name')}} </b></button>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i> Hesabım</a></li>
+                    <li><a href="#"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i>Siparişlerim</a></li>
+                    <li><a href="#"><i class="fa fa-chevron-right" style="font-size:10px; margin-right:3px;"></i>Favorilerim</a></li>
+                    <li><a href="{{route('logout')}}" style="float:right; padding:15px;">Çıkış yap</a></li>
+                </ul>
+            </nav>
+            </div>
         <?php } else{?>
             <a href="{{route('registerView')}}">
-            <div class="mini-circle">Kayıt</div>
+                <div class="mini-circle">Üye Ol</div>
             </a>
             <a href="{{route('loginView')}}">
-            <div class="mini-circle"><i class="fa fa-sign-in-alt"></i></div>
+                {{-- <i class="fa fa-sign-in-alt" style="margin-right:8px; font-size:12px;"></i> --}}
+            <div class="mini-circle">Üye Girişi</div>
             </a>
         <?php } ?>
         </div>
@@ -70,6 +69,7 @@
         <a href="">
         <li>Görüşme Kayıtları</li>
         </a>
+
     </ul>
 </div>
     </div>

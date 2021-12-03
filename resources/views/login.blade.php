@@ -35,7 +35,7 @@
               
                   <div class="checkbox mb-3">
                     <label class="mt-3">
-                        <a  href="/login">Hesabım yok | Kayıt Ol</a>
+                        <a  href="/register">Hesabım yok | Kayıt Ol</a>
                       <input type="checkbox" value="remember-me" id="remember-me"> Beni Hatırla
                     </label>
                   </div>

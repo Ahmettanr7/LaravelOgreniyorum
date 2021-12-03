@@ -22,6 +22,16 @@
                   <h3 class="mb-4" style="width: 72px; height:57px; color:#2f5e88">Laravel Öğreniyorum</h3>
                   <h1 class="h3 mb-3 fw-normal">Kayıt Ol</h1>
               
+                  @if ($errors->any())
+                    <div class="alert alert-danger" id="alert">
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                  @endforeach
+                      </ul>
+                    </div>
+                  @endif
+
                   <div class="form-floating">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Ahmet Tanrıkulu">
                     <label for="name">Ad Soyad</label>
@@ -68,11 +78,14 @@
   success: (data) => {
     window.localStorage.setItem("email",data.user.email);
     window.localStorage.setItem("token",data.token);
-    
+    console.log(data);
+    alert('Kayıt işlemi başarılı giriş sayfasına yönlendirileceksiniz.')
+
+    window.location.href = '/login';
   },
   error: (err,data) => {
-  alert(form.serialize());
-  console.log('error : ' + err);
+alert("İşlem Başarısız. Bilgilerinizi kontrol ediniz");
+console.log(err);
   }
   });
   
