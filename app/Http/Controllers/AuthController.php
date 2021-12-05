@@ -15,22 +15,22 @@ class AuthController extends Controller
         return view('register');
     }
     public function register(Request $request) {
-        $fields = $request->validate([
-            'name' => 'required|string|min:3|max:15',
-            'email' => 'required|string|unique:users,email',
-            'password' => 'required|string|confirmed'
-        ]);
-        $user = User::where('email', $fields['email'])->first();
-        if(!$fields->passes()){
-            return response()->json(['status'=>0, 'error'=>$fields->errors()->toArray()]);
+        // $fields = $request->validate([
+        //     'name' => 'required|string|min:3|max:15',
+        //     'email' => 'required|string|unique:users,email',
+        //     'password' => 'required|string|confirmed'
+        // ]);
+        $user = User::where('email', $request['email'])->first();
+        if(!$request->passes()){
+            return response()->json(['status'=>0, 'error'=>$request->errors()->toArray()]);
         }else if($user){
             return response()->json(['status'=>401, 'error'=>'Bu email zaten kayıtlı']);
         }else{
 
             $user = User::create([
-                'name' => $fields['name'],
-                'email' => $fields['email'],
-                'password' => bcrypt($fields['password'])
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => bcrypt($request['password'])
             ]);
     
             $token = $user->createToken('myapptoken')->plainTextToken;
@@ -53,25 +53,21 @@ class AuthController extends Controller
     }
 
     public function login(Request $request) {
-        $fields = $request->validate([
-            'email' => 'required|string',
-            'password' => 'required|string'
-        ]);
 
         // Check email
-        $user = User::where('email', $fields['email'])->first();
+        $user = User::where('email', $request['email'])->first();
 
         // Check password
-        if(!$user || !Hash::check($fields['password'], $user->password)) {
+        if( !Hash::check($request['password'], $user->password)) {
             $response = [
                 'message' => 'Hatalı şifre girdiniz !' 
             ];
-            return response($response, 401);
+            return response()->json($response, 401);
         }
 
         $token = $user->createToken('myapptoken')->plainTextToken;
 
-        $request->session()->put([
+        session()->put([
             'id'        => $user['id'],
             'name'      => $user['name'],
             'email'     => $user['email']
@@ -85,7 +81,7 @@ class AuthController extends Controller
 
         Cookie::queue('accessToken', $token);
 
-        return response($response, 201);
+        return response()->json($response, 201);
     }
 
     public function logout(Request $request) {
@@ -96,5 +92,18 @@ class AuthController extends Controller
         Cookie::queue(\Cookie::forget('accessToken'));
 
         return redirect()->route('home');
+    }
+
+    //API KODLARI
+
+    public function getSession(Request $request){
+    
+    $id     =   $request->session()->get('id');
+    $email  =   $request->session()->get('email');
+    $name   =   $request->session()->get('name');
+    $session[] = array(['id'=>$id,'email'=>$email,'name'=>$name]);
+    return $session;
+    
+    
     }
 }

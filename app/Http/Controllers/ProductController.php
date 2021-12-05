@@ -121,4 +121,15 @@ class ProductController extends Controller
         }
         return redirect()->back();
     }
+
+
+
+
+
+    //API CONTROLLER
+    public function getByIdProduct($id)
+    {
+        $result = Product::find($id);
+        return $result;
+    }
 }
